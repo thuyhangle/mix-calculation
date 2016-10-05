@@ -16,20 +16,35 @@ namespace A1B1B2B6
 
         public void findResistance(object sender, EventArgs e)
         {
-            float output = float.Parse(vol.Text) / float.Parse(cur.Text);
-            string resistanceAns = output.ToString();
-            string resistance = resistanceAns + " ohm";
-            ResistanceAnswer.Text = "Answer: " + resistance;
+            if (float.Parse(vol.Text) == 0 || float.Parse(cur.Text) == 0 ) {
+                ResistanceAnswer.Text = "Invalid Input!";
+            }
+            else
+            {
+                float output = float.Parse(vol.Text) / float.Parse(cur.Text);
+                string resistanceAns = output.ToString();
+                string resistance = resistanceAns + " ohm";
+                ResistanceAnswer.Text = "Answer: " + resistance;
+
+            }
         }
 
         public void findBMI(object sender, EventArgs e)
         {
-            float output = float.Parse(weight.Text) / (float.Parse(height.Text) * float.Parse(height.Text));
-            string BMIAns = output.ToString();
-            BMIAnswer.Text = "Your BMI is: " + BMIAns + "\n"
-                            + "<18.5: thin" + "\n"
-                            + "18.5 - 25: normal" + "\n"
-                            + ">25: overweight";
+            if ( float.Parse(weight.Text) <= 0 || float.Parse(height.Text) <= 0 )
+            {
+                BMIAnswer.Text = "Invalid Input! Please type again";
+            }
+            else
+            {
+                float output = float.Parse(weight.Text) / (float.Parse(height.Text) * float.Parse(height.Text));
+                string BMIAns = output.ToString();
+                BMIAnswer.Text = "Your BMI is: " + BMIAns + "\n"
+                                + "<18.5: thin" + "\n"
+                                + "18.5 - 25: normal" + "\n"
+                                + ">25: overweight";
+
+            }
         }
 
         public void findDay(object sender, EventArgs e)
